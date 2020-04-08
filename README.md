@@ -55,6 +55,7 @@ Observations:
 - **Brute force** is mainly impacted by `n_samples` and not significantly by `n_features` and `n_neighbors`
 - Tree based methods are faster with lower dataset intrinsic dimensionality and with higher dataset sparsity
 - Tree based methods are more efficient than **brute force** when `n_features` isn't too high. Treshold mostly depends of the data structure and with a smaller impact from `n_samples` and `n_neighbors`
+- The higher `n_neighbors` is in proportion to `n_samples` and `n_features` the slower tree based methods are
 
 <p align="center">
   <img src="img/n_features_plot_sn_data.png">
