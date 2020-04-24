@@ -1,0 +1,2 @@
+astroml
+scipy
