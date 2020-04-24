@@ -1,5 +1,5 @@
-ipython
 matplotlib
 numpy
 pandas
 sklearn
+tqdm
