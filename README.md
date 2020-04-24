@@ -18,8 +18,8 @@ Datasets used:
 - `covertype`: consists of forest cartographic variables, shape `(110_393, 54)`, version 1 from [OpenML](https://www.openml.org/d/1596).
 - `creditcard`: consists of credit cards transactions PCA transformed variables, shape `(284_807, 29)`, version 1 from [OpenML](https://www.openml.org/d/1597).
 - `mnist_pca`: consists of MNIST PCA transformed variables, shape `(70_000, 784)`, version 1 from [OpenML](https://www.openml.org/d/554).
-- `low_intrinsic_dim_data`: consists of standard normal sampled variables divided by 1_000 (except 5 of them), shape (110_000, 100).
-- `standard_normal_data`: consists of standard normal sampled variables, shape (110_000, 100).
+- `low_intrinsic_dim_data`: consists of standard normal sampled variables divided by 1,000 (except 5 of them), shape `(110_000, 100)`.
+- `standard_normal_data`: consists of standard normal sampled variables, shape `(110_000, 100)`.
 
 Parameters studied:
 - `algorithm`
@@ -45,7 +45,7 @@ Miscellaneous:
 
 [sklearn_heuristic.ipynb](https://nbviewer.jupyter.org/github/gbolmier/sklearn-neighbors-benchmark/blob/master/sklearn_heuristic.ipynb)
 
-## Todo:
+## Todo
 - Use random feature subsampling instead of choosing the `n` first features when repeating experiments
 - Run experiments with more granularity in `n_features`
 - Display error bars in plots
