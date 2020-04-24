@@ -49,7 +49,7 @@ Miscellaneous:
 - Use random feature subsampling instead of choosing the `n` first features when repeating experiments
 - Run experiments with more granularity in `n_features`
 - Display error bars in plots
-- Construct worst case scenario with *mnist_pca* and/or *low_intrinsic_dim_data*
+- Construct worst cases scenarios with *mnist_pca* and *low_intrinsic_dim_data*
 
 ## Resources
 
