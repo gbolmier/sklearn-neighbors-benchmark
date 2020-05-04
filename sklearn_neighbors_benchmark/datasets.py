@@ -16,17 +16,17 @@ class Datasets:
         'covertype',
         'creditcard',
         'mnist_pca',
-        'low_intrinsic_dim_data',
-        'standard_normal_data',
+        'synthetic_low_intrinsic_dim',
+        'synthetic_standard_normal',
     ]
-    
+
     def __init__(self, select='all', random_state=32):
         if select != 'all':
             self.names = select
-        
+
         self.random_state = random_state
-        self.datasets = self.load_and_preprocess_datasets()    
-    
+        self.datasets = self.load_and_preprocess_datasets()
+
     def load_and_preprocess_datasets(self):
         print('Loading and preprocessing datasets...')
         datasets = {
@@ -79,7 +79,7 @@ class Datasets:
         X_train, X_test = self.standardize(X_train, X_test)
 
         # apply PCA
-        pca = PCA(random_state=self.random_state)
+        pca = PCA(n_components=100, random_state=self.random_state)
         X_train = pca.fit_transform(X_train)
         X_test = pca.transform(X_test)
 
@@ -88,7 +88,7 @@ class Datasets:
 
         return X_train, X_test
 
-    def get_low_intrinsic_dim_data(self, intrinsic_dim=5):
+    def get_synthetic_low_intrinsic_dim(self, intrinsic_dim=5):
         np.random.seed(self.random_state)
         X_signal = np.random.randn(110_000, intrinsic_dim)
         X_noise = np.random.randn(110_000, 100 - intrinsic_dim) / 1_000
@@ -96,7 +96,7 @@ class Datasets:
         X_train, X_test = X[:100_000], X[-10_000:]
         return X_train, X_test
 
-    def get_standard_normal_data(self, random_state=32):
+    def get_synthetic_standard_normal(self, random_state=32):
         np.random.seed(self.random_state)
         X_train = np.random.randn(100_000, 100)
         X_test = np.random.randn(10_000, 100)
