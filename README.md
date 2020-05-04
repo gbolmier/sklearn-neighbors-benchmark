@@ -8,7 +8,7 @@ Scikit-learn `0.22.2.post1` version is used.
 
 `sklearn_neighbors_benchmark` directory contains utilities to run experiments and save the results to `results.csv`.
 
-`run_experiments.py` allows you to run a set of experiments. Please note that the results will be merged in an **outer** fashion with existing results. It means that duplicated experiments will be run, but not saved.
+`run_experiments.py` allows you to run a set of experiments, saving the results in `results.csv`. Please note that duplicated experiments will be run, but not saved.
 
 `jakevdp_benchmark` directory contains Jake VanderPlas [benchmark](https://jakevdp.github.io/blog/2013/04/29/benchmarking-nearest-neighbor-searches-in-python/) with a modified version computing brute force instead of estimating it.
 
@@ -17,9 +17,9 @@ Scikit-learn `0.22.2.post1` version is used.
 Datasets used:
 - `covertype`: consists of forest cartographic variables, shape `(110_393, 54)`, version 1 from [OpenML](https://www.openml.org/d/1596).
 - `creditcard`: consists of credit cards transactions PCA transformed variables, shape `(284_807, 29)`, version 1 from [OpenML](https://www.openml.org/d/1597).
-- `mnist_pca`: consists of MNIST PCA transformed variables, shape `(70_000, 784)`, version 1 from [OpenML](https://www.openml.org/d/554).
-- `low_intrinsic_dim_data`: consists of standard normal sampled variables divided by 1,000 (except 5 of them), shape `(110_000, 100)`.
-- `standard_normal_data`: consists of standard normal sampled variables, shape `(110_000, 100)`.
+- `mnist_pca`: consists of the 100 first MNIST PCA transformed variables (explaining 70% of the variance), shape `(70_000, 100)`, version 1 from [OpenML](https://www.openml.org/d/554).
+- `synthetic_low_intrinsic_dim`: consists of standard normal sampled variables divided by 1,000 (except 5 of them), shape `(110_000, 100)`.
+- `synthetic_standard_normal`: consists of standard normal sampled variables, shape `(110_000, 100)`.
 
 Parameters studied:
 - `algorithm`
@@ -27,6 +27,8 @@ Parameters studied:
 - `n_samples` at construction time
 - `n_features`
 - `n_neighbors`
+- `n_jobs`, number of parallel jobs to run for neighbors search
+- `n_threads`, number of threads that can be used in OpenMP/BLAS thread pools
 
 Results saved:
 - `time_construction_mean`
@@ -36,19 +38,16 @@ Results saved:
 
 Miscellaneous:
 - In order to get robust results, the number of query points is fixed to 10,000
-- Each experiment is repeated 3 times to account for variance of the runs
-- Not sampled datasets are standardized
+- Each experiment is repeated 3 times — with random feature sampling for real world datasets
+- Real world datasets are standardized
 - `metric` is fixed to `euclidean`
-- `n_jobs` is fixed to `1`
 
 ## Results analysis
 
-[sklearn_heuristic.ipynb](https://nbviewer.jupyter.org/github/gbolmier/sklearn-neighbors-benchmark/blob/master/sklearn_heuristic.ipynb)
+[sklearn_nn_heuristic.ipynb](https://nbviewer.jupyter.org/github/gbolmier/sklearn-neighbors-benchmark/blob/master/sklearn_nn_heuristic.ipynb)
 
 ## Todo
-- Use random feature subsampling instead of choosing the `n` first features when repeating experiments
 - Run experiments with more granularity in `n_features`
-- Display error bars in plots
 - Construct worst cases scenarios with *mnist_pca* and *low_intrinsic_dim_data*
 
 ## Resources
