@@ -96,7 +96,7 @@ class Datasets:
         X_train, X_test = X[:100_000], X[-10_000:]
         return X_train, X_test
 
-    def get_synthetic_standard_normal(self, random_state=32):
+    def get_synthetic_standard_normal(self):
         np.random.seed(self.random_state)
         X_train = np.random.randn(100_000, 100)
         X_test = np.random.randn(10_000, 100)
