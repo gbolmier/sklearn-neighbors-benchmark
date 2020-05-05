@@ -60,7 +60,8 @@ def run_experiments(datasets, param_gen):
     return results
 
 
-def _feature_subsampling(X_train, X_test, n_features):
+def _feature_subsampling(X_train, X_test, n_features, random_state=32):
+    np.random.seed(random_state)
     mask = np.random.choice(X_train.shape[1], size=n_features, replace=False)
     return X_train[:, mask], X_test[:, mask]
 
@@ -103,20 +104,20 @@ def _run_single_experiment(X_train, X_test, params, repeat=3):
     }
 
 
-def save_results(results, filepath='results.csv'):
+def save_results(results, savepath='results.csv'):
     print('Saving results...')
-    if os.path.exists(filepath):
+    if os.path.exists(savepath):
         params = [
             param_name
             for param_name in results[0].keys()
             if not param_name.startswith('time')
         ]
         results_new = pd.DataFrame(results)
-        results_old = pd.read_csv(filepath)
+        results_old = pd.read_csv(savepath)
         results_all = results_old.merge(results_new, how='outer')
         results_all.drop_duplicates(params, inplace=True)
     else:
         results_all = pd.DataFrame(results)
 
-    results_all.to_csv(filepath, index=False)
+    results_all.to_csv(savepath, index=False)
     print('Done!')

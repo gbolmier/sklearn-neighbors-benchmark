@@ -12,7 +12,7 @@ datasets = Datasets().datasets  # dict -> {'dataset_1': (X_train, X_test), ...}
 param_grid = {
     'dataset': datasets.keys(),
     'n_samples': [10_000, 50_000, 100_000],  # at construction time
-    'n_features': list(range(5, 10)) + list(range(10, 31, 5)),
+    'n_features': list(range(11, 15)),
     'algorithm': ['brute', 'kd_tree', 'ball_tree'],
     'n_neighbors': [10, 100],
     'n_jobs': [1],  # number of parallel jobs to run for neighbors search
@@ -23,4 +23,4 @@ param_gen = ParameterGen(param_grid)
 
 # Run experiments and save the results
 results = run_experiments(datasets, param_gen)
-save_results(results, filepath='results.csv')
+save_results(results, savepath='results.csv')
