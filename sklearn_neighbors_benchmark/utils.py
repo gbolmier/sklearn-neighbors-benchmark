@@ -60,13 +60,12 @@ def run_experiments(datasets, param_gen):
     return results
 
 
-def _feature_subsampling(X_train, X_test, n_features, random_state=32):
-    np.random.seed(random_state)
+def _feature_subsampling(X_train, X_test, n_features):
     mask = np.random.choice(X_train.shape[1], size=n_features, replace=False)
     return X_train[:, mask], X_test[:, mask]
 
 
-def _run_single_experiment(X_train, X_test, params, repeat=3):
+def _run_single_experiment(X_train, X_test, params, repeat=3, random_state=32):
     # Alias parameters for readability
     n_samples, n_features = params['n_samples'], params['n_features']
     algorithm, n_neighbors = params['algorithm'], params['n_neighbors']
@@ -77,6 +76,7 @@ def _run_single_experiment(X_train, X_test, params, repeat=3):
     times_construction, times_querying = [], []
     model = NearestNeighbors(n_neighbors, algorithm=algorithm, n_jobs=n_jobs)
 
+    np.random.seed(random_state)
     with threadpool_limits(limits=n_threads):
         for _ in range(repeat):
 
