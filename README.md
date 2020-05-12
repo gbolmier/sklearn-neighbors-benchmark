@@ -46,10 +46,6 @@ Miscellaneous:
 
 [sklearn_nn_heuristic.ipynb](https://nbviewer.jupyter.org/github/gbolmier/sklearn-neighbors-benchmark/blob/master/sklearn_nn_heuristic.ipynb)
 
-## Todo
-- Run experiments with more granularity in `n_features`
-- Construct worst cases scenarios with *mnist_pca* and *low_intrinsic_dim_data*
-
 ## Resources
 
 - [Scikit-learn user guide - nearest neighbor algorithms](https://scikit-learn.org/dev/modules/neighbors.html#nearest-neighbor-algorithms)
