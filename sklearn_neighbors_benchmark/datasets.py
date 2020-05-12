@@ -22,7 +22,7 @@ class Datasets:
 
     def __init__(self, select='all', random_state=32):
         if select != 'all':
-            self.names = select
+            self.names = list(select)
 
         self.random_state = random_state
         self.datasets = self.load_and_preprocess_datasets()
