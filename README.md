@@ -1,6 +1,6 @@
-# Scikit-learn nearest neighbors benchmark
+# :bar_chart: Scikit-learn nearest neighbors benchmark
 
-This repository contains scripts and notebooks for benchmarking scikit-learn [nearest neighbors algorithms](https://scikit-learn.org/dev/modules/neighbors.html#nearest-neighbor-algorithms) (**brute force**, **k-d tree** and **ball tree**). This work is related to sklearn neighbors heuristic issue [#8213](https://github.com/scikit-learn/scikit-learn/issues/8213).
+This repository contains scripts and notebooks for benchmarking scikit-learn [nearest neighbors algorithms](https://scikit-learn.org/dev/modules/neighbors.html#nearest-neighbor-algorithms) (**brute force**, **k-d tree** and **ball tree**). This work is related to sklearn neighbors heuristic issue [#8213](https://github.com/scikit-learn/scikit-learn/issues/8213) addressed with the following pull request [#17148](https://github.com/scikit-learn/scikit-learn/pull/17148).
 
 Scikit-learn `0.22.2.post1` version is used.
 
@@ -45,6 +45,7 @@ Miscellaneous:
 ## Results analysis
 
 [sklearn_nn_heuristic.ipynb](https://nbviewer.jupyter.org/github/gbolmier/sklearn-neighbors-benchmark/blob/master/sklearn_nn_heuristic.ipynb)
+[sklearn_nn_heuristic_proposal.ipynb](https://nbviewer.jupyter.org/github/gbolmier/sklearn-neighbors-benchmark/blob/master/sklearn_nn_heuristic_proposal.ipynb)
 
 ## Resources
 
