@@ -1,4 +1,4 @@
-# Scikit-learn nearest neighbors benchmark
+# :bar_chart: Scikit-learn nearest neighbors benchmark
 
 This repository contains scripts and notebooks for benchmarking scikit-learn [nearest neighbors algorithms](https://scikit-learn.org/dev/modules/neighbors.html#nearest-neighbor-algorithms) (**brute force**, **k-d tree** and **ball tree**). This work is related to sklearn neighbors heuristic issue [#8213](https://github.com/scikit-learn/scikit-learn/issues/8213).
 
